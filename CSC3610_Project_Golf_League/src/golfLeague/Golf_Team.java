@@ -9,7 +9,7 @@ public class Golf_Team extends Player {
 	Player[] teamMembers = new Player[4];
 	
 	int rank;
-
+	//Constructor for assigning variable respectively
 	public Golf_Team(String teamName, Player[] teamMembers, int rank) {
 		super();
 		this.teamName = teamName;
@@ -17,6 +17,9 @@ public class Golf_Team extends Player {
 		this.rank = rank;
 	}
 
+	/**
+	 *Getter and Setters 
+	 **/
 	public String getTeamName() {
 		return teamName;
 	}
@@ -41,9 +44,13 @@ public class Golf_Team extends Player {
 		this.rank = rank;
 	}
 	
+	/**
+	 * Override object
+	 */
 	@Override
 	public String toString(){
-		return "Team Name: " + teamName;
+		return "Team Name: " + teamName + "\nPlayer: " + teamMembers[0] + ", "
+				+ teamMembers[1] + ", " + teamMembers[2] + ", " + teamMembers[1];
 	}
 	
 	
