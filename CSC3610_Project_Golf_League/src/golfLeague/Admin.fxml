@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="114.0" layoutY="14.0" text="Administration Controls">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="111.0" text="View Leagues:" textAlignment="RIGHT" />
+            <Label layoutX="25.0" layoutY="153.0" text="View Teams :" textAlignment="RIGHT" />
+            <Label layoutX="22.0" layoutY="201.0" text="View Coaches:" />
+            <Label layoutX="25.0" layoutY="243.0" text="View Players:" />
+            <ComboBox layoutX="110.0" layoutY="107.0" prefHeight="25.0" prefWidth="201.0" promptText="Must Select a League First" />
+            <ComboBox layoutX="110.0" layoutY="149.0" prefHeight="25.0" prefWidth="201.0" />
+            <ComboBox layoutX="110.0" layoutY="197.0" prefHeight="25.0" prefWidth="201.0" />
+            <ComboBox layoutX="110.0" layoutY="239.0" prefHeight="25.0" prefWidth="201.0" />
+            <Button layoutX="330.0" layoutY="99.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="43.0" text="+" textAlignment="CENTER" />
+            <TextField layoutX="440.0" layoutY="108.0" promptText="Add League" />
+            <TextField layoutX="440.0" layoutY="149.0" promptText="Add Team" />
+            <TextField layoutX="440.0" layoutY="197.0" promptText="Add Coach" />
+            <TextField layoutX="440.0" layoutY="239.0" promptText="Add Players" />
+            <Label layoutX="372.0" layoutY="93.0" text="/">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button layoutX="387.0" layoutY="118.0" mnemonicParsing="false" prefHeight="9.0" prefWidth="43.0" text="-" />
+            <Label layoutX="372.0" layoutY="135.0" text="/">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="375.0" layoutY="183.0" text="/">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="372.0" layoutY="225.0" text="/">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button layoutX="330.0" layoutY="141.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="43.0" text="+" textAlignment="CENTER" />
+            <Button layoutX="330.0" layoutY="189.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="43.0" text="+" textAlignment="CENTER" />
+            <Button layoutX="330.0" layoutY="231.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="43.0" text="+" textAlignment="CENTER" />
+            <Button layoutX="387.0" layoutY="158.0" mnemonicParsing="false" prefHeight="9.0" prefWidth="43.0" text="-" />
+            <Button layoutX="386.0" layoutY="206.0" mnemonicParsing="false" prefHeight="9.0" prefWidth="43.0" text="-" />
+            <Button layoutX="386.0" layoutY="248.0" mnemonicParsing="false" prefHeight="9.0" prefWidth="43.0" text="-" />
+            <Button layoutX="172.0" layoutY="315.0" mnemonicParsing="false" text="Go to Team Page" />
+            <Button layoutX="316.0" layoutY="315.0" mnemonicParsing="false" text="Go to Coach Page" />
+            <Button layoutX="457.0" layoutY="315.0" mnemonicParsing="false" text="Go to Players Page" />
+            <Button layoutX="22.0" layoutY="315.0" mnemonicParsing="false" text="Go to League Page" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
