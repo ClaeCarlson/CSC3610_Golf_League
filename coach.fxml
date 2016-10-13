@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="286.0" prefWidth="528.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="176.0" prefHeight="0.0" prefWidth="194.0" text="Coach Page">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button layoutX="123.0" layoutY="260.0" mnemonicParsing="false" text="Add Player" />
+            <Button layoutX="221.0" layoutY="260.0" mnemonicParsing="false" text="Delete Player" />
+            <Button layoutX="322.0" layoutY="260.0" mnemonicParsing="false" text="Print Roster" />
+            <Label layoutX="50.0" layoutY="90.0" text="Player Name:" />
+            <TextField fx:id="lblPlayerName" layoutX="123.0" layoutY="86.0" promptText="Search player name" />
+            <TableView layoutX="288.0" layoutY="85.0" prefHeight="157.0" prefWidth="216.0">
+              <columns>
+                <TableColumn prefWidth="163.0" text="Name" />
+                <TableColumn prefWidth="52.0" text="Rank" />
+              </columns>
+            </TableView>
+            <Separator layoutX="273.0" layoutY="84.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
+            <Label layoutX="56.0" layoutY="118.0" text="Player Rank:" />
+            <TextField fx:id="lblRank" layoutX="123.0" layoutY="114.0" promptText="Search player rank" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
