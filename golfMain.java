@@ -149,6 +149,51 @@ public class golfMain extends Application {
 		
 		
 	}
+	
+	public void insertPersonAll(String uname, String pword, String fname, String lname, String type, String handicap, String score, String rank, String team ) throws SQLException, ClassNotFoundException{
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/golf_league", "travon",
+				"tra");
+		
+		
+		String insertString = "insert into person (userName, password, fname,lname, type, handicap, score, rank, team) "
+				+ "values (?,?,?,?,?,?,?,?,?)";
+		PreparedStatement statement = connection.prepareStatement(insertString);
+		
+		statement.setString(1, uname);
+		statement.setString(2, pword);
+		statement.setString(3, fname);
+		statement.setString(4, lname);
+		statement.setString(5, type);
+		statement.setString(6, handicap);
+		statement.setString(7, score);
+		statement.setString(8, rank);
+		statement.setString(9, team);
+		
+		statement.executeUpdate();
+		
+	
+		connection.close();
+	}
+
+	public void update(String up, String set, String where) throws SQLException, ClassNotFoundException{
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		
+			java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/golf_league", "travon",
+				"tra");
+			
+			String update = "update ? set ? where ?";
+						
+			PreparedStatement statement = connection.prepareStatement(update);
+			
+			statement.setString(1, up);
+			statement.setString(2,  set);
+			statement.setString(3, where);
+			
+			statement.executeUpdate();
+	}
 
 	public static void main(String[] args) {
 		Map<String, Person> hashMap = new HashMap<>();
