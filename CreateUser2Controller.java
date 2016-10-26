@@ -50,12 +50,24 @@ public class CreateUser2Controller extends golfMain{
 		});
 		
 		btnSubmit.setOnAction(e -> {
-			hashMap.put(userName,
-					new Person(userName, pass, txtFName.getText(), txtLName.getText(),
-							type, txtHandicap.getText(), txtScore.getText()));
+			
+			submit();
+			
 		});
 		
-		
+	}
+	
+	public void submit(){
+		try {
+			insertPersonAll(txtUser.getText(), txtPass.getText(), txtFName.getText(), txtLName.getText(), 
+					txtType.getText(), txtHandicap.getText(), txtScore.getText(), null, null);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }
