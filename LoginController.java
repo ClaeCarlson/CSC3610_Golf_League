@@ -33,15 +33,28 @@ public class LoginController extends golfMain {
 			user = txtUser.getText();
 			pass = txtPass.getText();
 
-			if (user.equals("admin") && pass.equals("admin")) {
-				showAdmin();
-				errorDisplay.setVisible(false);
+			try {
+				if(pass.equals(data(" password " , " userName = '"+ user + "'"  ))){
+					if(data(" type ", " userName = '" + user + "'" ).equals("Player")){
+						showPlayer();
+						errorDisplay.setVisible(false);
+					}else if (data(" type "," userName = '" + user + "'").equals("Admin")){
+						showAdmin();
+						errorDisplay.setVisible(false);
+					}
+					
+				}else{
+					errorDisplay.setVisible(true);
+				}
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-
-			else
-				errorDisplay.setVisible(true);
-
 		});
+
 
 		btnClear.setOnAction(e -> {
 			txtUser.clear();
