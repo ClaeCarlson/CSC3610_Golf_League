@@ -134,6 +134,7 @@ public class golfMain extends Application {
 		type = type;
 		
 		FXMLLoader loader = new FXMLLoader();
+
 		loader.setLocation(golfMain.class.getResource("CreateUser2.fxml"));
 
 		try {
@@ -200,6 +201,25 @@ public class golfMain extends Application {
 			statement.executeUpdate();
 	}
 
+	public String data(String field, String where) throws SQLException, ClassNotFoundException{
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/golf_league", "travon",
+			"tra");
+		
+		String select = "select "+ field + " from person where " + where;
+					
+		Statement state = connection.createStatement();
+		
+		ResultSet ult = state.executeQuery(select);
+		
+		ult.next();
+		return ult.getString(1);
+		
+		
+		
+	}
 	public static void main(String[] args) {
 		Map<String, Person> hashMap = new HashMap<>();
 		launch(args);
