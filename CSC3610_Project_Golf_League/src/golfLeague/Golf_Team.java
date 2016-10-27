@@ -2,15 +2,15 @@ package golfLeague;
 
 import java.util.Arrays;
 
-public class Golf_Team extends Player {
+public class Golf_Team extends Person {
 
 	public String teamName;
 	
-	Player[] teamMembers = new Player[4];
+	Person[] teamMembers = new Person[5];
 	
 	int rank;
 	//Constructor for assigning variable respectively
-	public Golf_Team(String teamName, Player[] teamMembers, int rank) {
+	public Golf_Team(String teamName, Person[] teamMembers, int rank) {
 		super();
 		this.teamName = teamName;
 		this.teamMembers = teamMembers;
@@ -28,11 +28,11 @@ public class Golf_Team extends Player {
 		this.teamName = teamName;
 	}
 
-	public Player[] getTeamMembers() {
+	public Person[] getTeamMembers() {
 		return teamMembers;
 	}
 
-	public void setTeamMembers(Player[] teamMembers) {
+	public void setTeamMembers(Person[] teamMembers) {
 		this.teamMembers = teamMembers;
 	}
 
