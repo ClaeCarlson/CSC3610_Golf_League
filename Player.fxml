@@ -6,21 +6,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="429.0" prefWidth="468.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane fx:id="player" prefHeight="429.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="golfLeague.Player_Controller">
    <children>
       <Label layoutX="202.0" layoutY="23.0" text="Player">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TreeTableView layoutX="89.0" layoutY="88.0" prefHeight="240.0" prefWidth="302.0">
+      <TreeTableView fx:id="treeView" layoutX="89.0" layoutY="88.0" prefHeight="240.0" prefWidth="302.0">
         <columns>
-          <TreeTableColumn prefWidth="75.0" text="Rank" />
-          <TreeTableColumn prefWidth="75.0" text="Name" />
-            <TreeTableColumn prefWidth="75.0" text="Team" />
-            <TreeTableColumn prefWidth="75.0" text="Handicap" />
+          <TreeTableColumn fx:id="rank" prefWidth="75.0" text="Rank" />
+          <TreeTableColumn id="name" fx:id="name" prefWidth="75.0" text="Name" />
+            <TreeTableColumn fx:id="team" prefWidth="75.0" text="Team" />
+            <TreeTableColumn fx:id="handicap" prefWidth="75.0" text="Handicap" />
         </columns>
       </TreeTableView>
+      <Button fx:id="start" layoutX="99.0" layoutY="356.0" mnemonicParsing="false" onAction="#populateTable" text="Button" />
    </children>
 </AnchorPane>
