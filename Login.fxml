@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="golfLeague.LoginController">
    <children>
-      <Button fx:id="btnClear" layoutX="232.0" layoutY="300.0" mnemonicParsing="false" onAction="#initialize" text="Clear" />
+      <Button fx:id="btnClear" layoutX="288.0" layoutY="300.0" mnemonicParsing="false" onAction="#initialize" text="Clear" />
       <Button fx:id="btnSubmit" layoutX="397.0" layoutY="300.0" mnemonicParsing="false" onAction="#initialize" text="Submit" />
       <ImageView fitHeight="156.0" fitWidth="222.0" layoutX="363.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,5 +25,7 @@
       <PasswordField fx:id="txtPass" layoutX="288.0" layoutY="245.0" onAction="#initialize" />
       <Label layoutX="173.0" layoutY="202.0" text="User Name: " />
       <Label layoutX="182.0" layoutY="249.0" text="Password: " />
+      <Label fx:id="errorDisplay" layoutX="263.0" layoutY="339.0" prefHeight="17.0" prefWidth="201.0" text="Incorrect username or password" textFill="RED" />
+      <Button fx:id="btnNewUser" layoutX="125.0" layoutY="300.0" mnemonicParsing="false" onAction="#initialize" text="Create new User" />
    </children>
 </AnchorPane>
