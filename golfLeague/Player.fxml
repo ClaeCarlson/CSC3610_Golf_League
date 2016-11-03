@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="person" prefHeight="429.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="golfLeague.Player_Controller">
+   <children>
+      <Label layoutX="202.0" layoutY="23.0" text="Player">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TreeTableView fx:id="treeView" layoutX="89.0" layoutY="88.0" prefHeight="240.0" prefWidth="302.0">
+        <columns>
+          <TreeTableColumn fx:id="rank" prefWidth="75.0" text="Rank" />
+          <TreeTableColumn id="name" fx:id="name" prefWidth="75.0" text="Name" />
+            <TreeTableColumn fx:id="team" prefWidth="75.0" text="Team" />
+            <TreeTableColumn fx:id="handicap" prefWidth="75.0" text="Handicap" />
+        </columns>
+      </TreeTableView>
+      <Button fx:id="start" layoutX="99.0" layoutY="356.0" mnemonicParsing="false" onAction="#populateTable" text="Button" />
+      <Button fx:id="logout" layoutX="391.0" layoutY="10.0" mnemonicParsing="false" onAction="#initialize" prefHeight="16.0" prefWidth="51.0" text="Log out">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
