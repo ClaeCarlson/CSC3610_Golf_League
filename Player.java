@@ -7,24 +7,25 @@ public class Player {
 	
 	public String fName;
 	public String lName;
-	public int handicap;
-	public int score;
-	public int rank;
-	
+	public String handicap;
+	public String score;
+	public String rank;
+	public String team;
 	public Player () {
-		this.fName = "";
-		this.lName = "";
-		this.handicap = 0;
-		this.score = 0;
-		this.rank = 0;
+		this.fName = " ";
+		this.lName = " ";
+		this.handicap = " ";
+		this.score = "  ";
+		this.rank = " ";
 	}
 	
-	public Player (String f, String l, int handi, int score, int rank) {
+	public Player (String f, String l, String handi, String score, String rank, String team) {
 		this.fName = f;
 		this.lName = l;
 		this.handicap = handi;
 		this.score = score;
 		this.rank = rank;
+		this.team = team;
 	}
 
 	public String getfName() {
@@ -43,30 +44,38 @@ public class Player {
 		this.lName = lName;
 	}
 
-	public int getHandicap() {
+	public String getHandicap() {
 		return handicap;
 	}
 
-	public void setHandicap(int handicap) {
+	public void setHandicap(String handicap) {
 		this.handicap = handicap;
 	}
 
-	public int getScore() {
+	public String getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(String score) {
 		this.score = score;
 	}
 
-	public int getRank() {
+	public String getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
+	public void setRank(String rank) {
 		this.rank = rank;
 	}
 	
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
 	@Override
 	public String toString() {
 		return "Player: " + fName + " " + lName + "\nHandicap:  "
