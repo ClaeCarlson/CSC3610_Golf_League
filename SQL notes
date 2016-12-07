@@ -1,0 +1,20 @@
+=======Trigger for saving Deleted data=======
+
+create table deletedPeople like golf_league_database.person;
+
+
+CREATE TRIGGER People_after_delete AFTER DELETE ON person
+FOR EACH ROW
+INSERT INTO deletedpeople VALUES(old.username, old.password, old.fname, old.lname, old.type,
+old.handicap, old.score, old.rank, old.team);
+
+
+DELETE FROM `golf_league_database`.`person` WHERE `Team`='tigers' and`password`='brack01' and`userName`='jbrack01' and`Rank`='1';
+
+
+==========retrieve deleted person=======
+
+CREATE TRIGGER Retrieve_Person AFTER DELETE ON deletedpeople
+FOR EACH ROW
+INSERT INTO person VALUES(old.username, old.password, old.fname, old.lname, old.type,
+old.handicap, old.score, old.rank, old.team);
