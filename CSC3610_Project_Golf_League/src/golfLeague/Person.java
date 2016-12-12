@@ -48,8 +48,10 @@ public class Person {
 
 	
 
-	public Person (String f, String l, String handi, String score, String rank, String team) {
+	public Person (String user, String f, String l, String handi, String score, String rank, String team) {
 
+		this.userName = user;
+		
 		this.fName = f;
 
 		this.lName = l;
@@ -58,7 +60,7 @@ public class Person {
 
 		this.score = score;
 
-		rank = "0";
+		this.rank = rank;
 
 		this.team = team;
 
@@ -149,10 +151,12 @@ public class Person {
 	@Override
 
 	public String toString() {
+		
+		return userName;
 
-		return "Player: " + fName + " " + lName + "\nHandicap:  "
+		/*return "Player: " + fName + " " + lName + "\nHandicap:  "
 
-				+ handicap + "/nLast Game's Score: " + score + "\nPlayer Ranking:";
+				+ handicap + "\nLast Game's Score: " + score + "\nPlayer Ranking:";*/
 
 	}
 

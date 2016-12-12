@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -9,36 +10,41 @@
 <AnchorPane fx:id="person" prefHeight="429.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="golfLeague.Player_Controller">
 
    <children>
+      <ImageView fitHeight="447.0" fitWidth="611.0" layoutY="-8.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../bin/golfLeague/Light-Grey-Background-Hd-5-1.jpg" />
+         </image>
+      </ImageView>
 
-      <Label layoutX="202.0" layoutY="23.0" text="Player">
+      <Label fx:id="lblName" layoutX="91.0" layoutY="26.0" prefHeight="29.0" prefWidth="360.0" text="Player Name" textAlignment="CENTER">
 
          <font>
 
-            <Font size="24.0" />
+            <Font name="PT Serif Bold" size="29.0" />
 
          </font>
 
       </Label>
 
-      <TreeTableView fx:id="treeView" layoutX="89.0" layoutY="88.0" prefHeight="240.0" prefWidth="302.0">
+      <TreeTableView fx:id="treeView" layoutX="89.0" layoutY="167.0" prefHeight="161.0" prefWidth="360.0">
 
         <columns>
 
-          <TreeTableColumn fx:id="rank" prefWidth="75.0" text="Rank" />
+          <TreeTableColumn fx:id="name" prefWidth="75.0" text="Name" />
 
-          <TreeTableColumn id="name" fx:id="name" prefWidth="75.0" text="Name" />
+          <TreeTableColumn id="name" fx:id="handicap" prefWidth="77.0" text="Handicap" />
 
-            <TreeTableColumn fx:id="team" prefWidth="75.0" text="Team" />
+            <TreeTableColumn fx:id="score" prefWidth="73.0" text="Score" />
 
-            <TreeTableColumn fx:id="handicap" prefWidth="75.0" text="Handicap" />
+            <TreeTableColumn fx:id="rank" prefWidth="75.0" text="Rank" />
 
         </columns>
 
       </TreeTableView>
 
-      <Button fx:id="start" layoutX="99.0" layoutY="356.0" mnemonicParsing="false" onAction="#populateTable" text="Button" />
+      <Button fx:id="fullRoster" layoutX="99.0" layoutY="356.0" mnemonicParsing="false" onAction="#populateTable" text="Full Roster" />
 
-      <Button fx:id="logout" layoutX="391.0" layoutY="10.0" mnemonicParsing="false" onAction="#initialize" prefHeight="16.0" prefWidth="51.0" text="Log out">
+      <Button fx:id="logout" layoutX="481.0" layoutY="6.0" mnemonicParsing="false" onAction="#initialize" prefHeight="16.0" prefWidth="51.0" text="Log out">
 
          <font>
 
@@ -47,6 +53,11 @@
          </font>
 
       </Button>
+      <Label fx:id="lblTeam" alignment="CENTER" layoutX="118.0" layoutY="108.0" prefHeight="17.0" prefWidth="302.0" text="Team Name" textAlignment="CENTER">
+         <font>
+            <Font name="PT Serif Bold" size="29.0" />
+         </font>
+      </Label>
 
    </children>
 

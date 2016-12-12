@@ -1,25 +1,13 @@
 package golfLeague;
 
-
-
 import java.io.IOException;
 import java.sql.SQLException;
-
-
-
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Button;
-
 import javafx.scene.control.Label;
-
-//import javafx.scene.control.TextArea;
-
 import javafx.scene.control.TextField;
 
-
-
-public class LoginController  {
+public class LoginController {
 
 	@FXML
 	Label errorDisplay;
@@ -40,53 +28,76 @@ public class LoginController  {
 	TextField txtPass;
 
 	JDBC_Connector mysqlAccess = new JDBC_Connector();
-	
+
+	boolean passGood = false;
+
+	static String userWindowLabel;
+
+	static String userTeam;
+
 	golfMain show = new golfMain();
+
 	public void initialize() {
 
 		errorDisplay.setVisible(false);
 
 		btnSubmit.setOnAction(e -> {
 			submit();
+
+			if (passGood)
+				golfMain.closeWindow(e);
+
 		});
 
 		btnClear.setOnAction(e -> {
 			clear();
 		});
 
-
 		btnNewUser.setOnAction(e -> {
 			newUser();
 		});
 
 	}
-	
-	
-	public void submit(){
+
+	public void submit() {
 		String user = txtUser.getText();
 		String pass = txtPass.getText();
 
 		try {
+			if (user.equalsIgnoreCase("admin") && pass.equalsIgnoreCase("admin")) {
+				// make this hardcoded for strings, not using database
+				passGood = true;
+				System.out.println("Admin");
+				show.showAdmin();
 
-			// validate that the username entered has the correct corresponding password
-			if(pass.equals(mysqlAccess.getPassword(user))){
-				System.out.println("pass good");
-				if(mysqlAccess.getType(user).equals("Player")){
-					System.out.println("PLayer");
+				errorDisplay.setVisible(false);
+			}
+			// validate that the username entered has the correct corresponding
+			// password
+			else if (pass.equals(mysqlAccess.getPassword(user))) {
+				// System.out.println("Password accepted");
+				if (mysqlAccess.getType(user).equals("Player")) {
+					System.out.println("Player");
+					passGood = true;
+					userWindowLabel = mysqlAccess.getName(user);
+
+					userTeam = mysqlAccess.getTeam(user);
 					show.showPlayer();
+
 					errorDisplay.setVisible(false);
 				} else if (mysqlAccess.getType(user).equals("Coach")) {
+					System.out.println("Coach");
+					passGood = true;
+					userWindowLabel = mysqlAccess.getName(user);
+					userTeam = mysqlAccess.getTeam(user);
 					show.showCoach();
 					errorDisplay.setVisible(false);
-				}else if (mysqlAccess.getType(user).equals("Admin")){
-					// make this hardcoded for strings, not using database
-					show.showAdmin();
 
-					errorDisplay.setVisible(false);
 				}
 
-			}else{
+			} else {
 				errorDisplay.setVisible(true);
+
 			}
 
 		} catch (ClassNotFoundException e1) {
@@ -94,23 +105,22 @@ public class LoginController  {
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			errorDisplay.setVisible(true);
-			System.out.println("SQL");
-			e1.printStackTrace();
+			System.out.println("Username and pass not recognized");
 
 		} catch (IOException e) {
-			
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	public void clear(){
+
+	public void clear() {
 		txtUser.clear();
 		txtPass.clear();
 		errorDisplay.setVisible(false);
 	}
-	
-	public void newUser(){
+
+	public void newUser() {
 		try {
 			show.showCreateUser2();
 		} catch (IOException e) {

@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
-
 <?import javafx.scene.control.*?>
-
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.layout.BorderPane?>
-
-
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="golfLeague.CreateUser2Controller">
    <top>
@@ -37,6 +31,11 @@
    <center>
       <AnchorPane prefHeight="422.0" prefWidth="448.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="431.0" fitWidth="448.0" layoutY="-6.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../bin/golfLeague/Light-Grey-Background-Hd-5-1.jpg" />
+               </image>
+            </ImageView>
             <TextField fx:id="txtFName" layoutX="120.0" layoutY="165.0" onAction="#initialize" />
             <TextField fx:id="txtLName" layoutX="120.0" layoutY="199.0" onAction="#initialize" />
             <Label layoutX="45.0" layoutY="170.0" text="First Name" />
@@ -54,7 +53,10 @@
             <TextField fx:id="txtUser" layoutX="120.0" layoutY="55.0" onAction="#initialize" />
             <TextField fx:id="txtPass" layoutX="120.0" layoutY="93.0" onAction="#initialize" />
             <RadioButton fx:id="typePlayer" layoutX="120.0" layoutY="135.0" mnemonicParsing="false" text="Player" />
-            <RadioButton fx:id="typeCoach" layoutX="218.0" layoutY="135.0" mnemonicParsing="false" text="Coach" toggleGroup="$type"/>
+            <RadioButton fx:id="typeCoach" layoutX="218.0" layoutY="135.0" mnemonicParsing="false" text="Coach">
+               <toggleGroup>
+                  <ToggleGroup fx:id="type" />
+               </toggleGroup></RadioButton>
             <TextField fx:id="txtTeam" layoutX="120.0" layoutY="300.0" onAction="#initialize" />
             <Label layoutX="76.0" layoutY="305.0" text="Team" />
          </children>

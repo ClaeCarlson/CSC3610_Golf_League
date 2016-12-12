@@ -5,20 +5,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class JDBC_Connector {
 
 	static private Connection connect = null;
-	private Statement statement = null;
-	private PreparedStatement prestm = null;
-	private ResultSet resultSet = null;
+	private static PreparedStatement prestm = null;
+	private static ResultSet resultSet = null;
 	
 	public JDBC_Connector() {
-		// TODO Auto-generated constructor stub
+
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			connect = DriverManager.getConnection("jdbc:mysql://localhost/golf_league", "root","1129");
+			// change password here to fit your mysql login
+			connect = DriverManager.getConnection("jdbc:mysql://localhost/golf_league", "root","redred");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,16 +47,15 @@ public class JDBC_Connector {
 
 	}
 
-	public void update(String up, String set, String where) throws SQLException, ClassNotFoundException {
+	public void update(String score, String user) throws SQLException, ClassNotFoundException {
 
 		
-		String update = "update ? set ? where ?";
+		String update = "update person set score = ? where userName = ?";
 
 		prestm = connect.prepareStatement(update);
 
-		prestm.setString(1, up);
-		prestm.setString(2, set);
-		prestm.setString(3, where);
+		prestm.setString(1, score);
+		prestm.setString(2, user);
 
 		prestm.executeUpdate();
 
@@ -89,20 +87,85 @@ public class JDBC_Connector {
 		
 		return resultSet.getString(1);
 	}
-
-	public ResultSet dataSet(String field) throws SQLException, ClassNotFoundException {
-
-		prestm = connect.prepareStatement("select " + field + " from person");
+	
+	// added 12/4 for player labels
+	public String getName(String user) throws SQLException{
+		
+		prestm = connect.prepareStatement("select fname, lname from person where userName = '" + user + "'");
 		resultSet = prestm.executeQuery();
 		resultSet.next();
+		
+		String fullName = resultSet.getString(1) + " " + resultSet.getString(2);
+		
+		System.out.println(fullName);
+		return fullName;
+		
+	}
+	
+	// added 12/5 for populating table with relevant info
+	public String getTeam(String user) throws SQLException {
+		prestm = connect.prepareStatement("select team from person where userName = '" + user + "'");
+		resultSet = prestm.executeQuery();
+		resultSet.next();
+		
+		String team = resultSet.getString(1);
+		
+		System.out.println(team);
+		
+		return team;
+	}
 
+	// changing dataSet from ResultSet dataSet(String field) to include where
+	public ResultSet dataSet(String field, String where, String table) throws SQLException, ClassNotFoundException {
+		prestm = connect.prepareStatement("select " + field + " from " + table + " " + where);
+		resultSet = prestm.executeQuery(); 
+		
 		return resultSet;
 
+	}
+
+	public void retrieveRank() throws SQLException,ClassNotFoundException {
+		
+		prestm = connect.prepareStatement("select userName, score from person order by score+0 desc");
+		
+		resultSet = prestm.executeQuery();
+		
+		int i = 1;
+		
+		while (resultSet.next()) {
+			// only do if string isn't ""
+			if (!resultSet.getString(2).equals("")) {
+				storeRank(i, resultSet.getString(1));
+				i++;
+			}
+		}
+	}
+	
+	public void storeRank(int i, String name) throws SQLException {
+		prestm = connect.prepareStatement("update person set rank = ? where userName = ?");
+		prestm.setInt(1, i);
+		prestm.setString(2, name);
+		prestm.executeUpdate();
+	}
+	
+	public void deletePerson(String user) throws SQLException {
+		prestm = connect.prepareStatement("delete from person where userName = ?");
+		prestm.setString(1, user);
+		prestm.executeUpdate();
+		System.out.println("User deleted");
+	}
+	
+	public void restorePerson(String user) throws SQLException {
+		prestm = connect.prepareStatement("delete from deletedpeople where userName = ?");
+		prestm.setString(1, user);
+		prestm.executeUpdate();
+		System.out.println("User restored");
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
+
 
 }

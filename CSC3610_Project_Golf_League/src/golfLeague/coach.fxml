@@ -1,68 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-
+<?import javafx.scene.image.*?>
 <?import javafx.scene.media.*?>
-
 <?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.*?>
-
 <?import java.lang.*?>
-
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.layout.AnchorPane?>
 
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="golfLeague.CoachController">
+   <left>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-
-   <top>
-
-      <AnchorPane prefHeight="286.0" prefWidth="528.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="321.0" prefWidth="556.0" BorderPane.alignment="CENTER">
 
          <children>
+            <ImageView fitHeight="409.0" fitWidth="603.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../bin/golfLeague/Light-Grey-Background-Hd-5-1.jpg" />
+               </image>
+            </ImageView>
 
-            <Label layoutX="176.0" prefHeight="44.0" prefWidth="209.0" text="Coach Page">
+            <Label fx:id="lblName" layoutX="37.0" layoutY="13.0" prefHeight="44.0" prefWidth="491.0" text="Coach Name">
 
                <font>
 
-                  <Font size="36.0" />
+                  <Font name="PT Serif Bold" size="36.0" />
 
                </font>
 
             </Label>
 
-            <Button layoutX="123.0" layoutY="260.0" mnemonicParsing="false" text="Add Player" />
+            <Button fx:id="updateScore" layoutX="39.0" layoutY="140.0" mnemonicParsing="false" onAction="#initialize" text="Update Score" />
 
-            <Button layoutX="221.0" layoutY="260.0" mnemonicParsing="false" text="Delete Player" />
+            <Button fx:id="deletePlayer" layoutX="40.0" layoutY="187.0" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="102.0" text="Delete Player" />
 
-            <Button layoutX="322.0" layoutY="260.0" mnemonicParsing="false" text="Print Roster" />
+            <Button fx:id="printRoster" layoutX="40.0" layoutY="234.0" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="101.0" text="Full Roster" />
 
-            <Label layoutX="32.0" layoutY="91.0" text="Player Name:" />
+            <Label layoutX="39.0" layoutY="93.0" prefHeight="17.0" prefWidth="47.0" text="Score:" />
 
-            <TextField fx:id="lblPlayerName" layoutX="123.0" layoutY="86.0" prefHeight="27.0" prefWidth="153.0" promptText="Search player name" />
+            <TextField fx:id="txtScore" layoutX="90.0" layoutY="88.0" onAction="#initialize" prefHeight="27.0" prefWidth="51.0" />
 
-            <TableView layoutX="288.0" layoutY="85.0" prefHeight="157.0" prefWidth="216.0">
+            <Separator layoutX="167.0" layoutY="85.0" orientation="VERTICAL" prefHeight="231.0" prefWidth="14.0" />
 
-              <columns>
-
-                <TableColumn prefWidth="163.0" text="Name" />
-
-                <TableColumn prefWidth="52.0" text="Rank" />
-
-              </columns>
-
-            </TableView>
-
-            <Separator layoutX="273.0" layoutY="84.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="14.0" />
-
-            <Label layoutX="35.0" layoutY="119.0" text="Player Rank:" />
-
-            <TextField fx:id="lblRank" layoutX="123.0" layoutY="114.0" prefHeight="27.0" prefWidth="153.0" promptText="Search player rank" />
-
-            <Button layoutX="472.0" layoutY="9.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="42.0" text="Logout">
+            <Button fx:id="logout" layoutX="528.0" layoutY="14.0" mnemonicParsing="false" onAction="#initialize" prefHeight="16.0" prefWidth="42.0" text="Logout">
 
                <font>
 
@@ -71,11 +51,35 @@
                </font>
 
             </Button>
+            <Label layoutX="196.0" layoutY="56.0" prefHeight="29.0" prefWidth="310.0" text="Select a player from the list to update score/delete" wrapText="true">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <TreeTableView fx:id="treeView" layoutX="179.0" layoutY="88.0" prefHeight="228.0" prefWidth="334.0">
+              <columns>
+                <TreeTableColumn fx:id="name" prefWidth="75.0" text="Name" />
+                <TreeTableColumn fx:id="handicap" prefWidth="75.0" text="Handicap" />
+                  <TreeTableColumn fx:id="score" prefWidth="75.0" text="Score" />
+                  <TreeTableColumn fx:id="rank" prefWidth="75.0" text="Rank" />
+              </columns>
+            </TreeTableView>
+            <Label fx:id="success" layoutX="311.0" layoutY="302.0" text="Successfully completed action" textFill="#18c32f">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="349.0" text="Selected User:" />
+            <Label fx:id="lblSelectedName" layoutX="174.0" layoutY="349.0" prefHeight="17.0" prefWidth="339.0" text="Name" />
+            <Label fx:id="lblTeam" layoutX="321.0" layoutY="341.0" prefHeight="50.0" prefWidth="282.0" text="TEAM NAME">
+               <font>
+                  <Font name="PT Serif Bold" size="26.0" />
+               </font>
+            </Label>
 
          </children>
 
       </AnchorPane>
-
-   </top>
+   </left>
 
 </BorderPane>
